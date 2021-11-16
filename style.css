@@ -1,0 +1,58 @@
+:root {
+      --typewriterSpeed: 3s;
+      --typewriterCharacters: 30;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-content: center;
+      text-align: center;
+      background: #222323;
+    }
+
+    h1 {
+      font-size: 45px;
+      position: relative;
+      font-family: "Courier New", monospace;
+      width: max-content;
+      color: #f0f6f0;
+      letter-spacing: 8px;
+    }
+
+    h1::before,
+    h1::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+
+    h1::before {
+      background: #222323;
+      animation: typewriter var(--typewriterSpeed)
+        steps(var(--typewriterCharacters)) 1s forwards;
+    }
+
+    h1::after {
+      width: 0.125em;
+      background: #f0f6f0;
+      animation: typewriter var(--typewriterSpeed)
+          steps(var(--typewriterCharacters)) 1s forwards,
+        blink 750ms steps(var(--typewriterCharacters)) infinite;
+    }
+
+    @keyframes typewriter {
+      to {
+        left: 100%;
+      }
+    }
+
+    @keyframes blink {
+      to {
+        background: transparent;
+      }
+    }
